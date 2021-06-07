@@ -90,3 +90,48 @@ if team == 'mystic':
 		print('Welcome to the gym')
 	else:
 		print('Get more exp')
+
+
+students_score = [1, 2, 3]
+for score in students_score:
+	print(score)
+
+x = 1
+while x < 5:
+	print(x)
+	x += 1
+
+while True:
+	user_say = input('Say something: ')
+	if user_say == 'Bye':
+		print('Okey, bye')
+		break
+	else:
+		print('You are wonderful!')
+
+# Trying with exceptions
+def cut_cake(parts):
+	try:
+		return 1/int(parts)
+	except (ZeroDivisionError, TypeError, ValueError):
+		return('No no no!')
+
+cake = cut_cake(0)
+print(cake)
+
+# Trying with modules
+import datetime
+datetime.datetime.now()	#Module.function.function
+datetime.date.today()
+
+date = datetime.datetime.now()
+date.strftime('%d.%m.%Y')
+
+# Third party import
+pip3 list
+pip3 install ephem
+import ephem
+mars = ephem.Mars('2016/09/23')
+ephem.constellation(mars)
+
+from telegram import Updater
