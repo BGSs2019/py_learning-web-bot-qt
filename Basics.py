@@ -68,3 +68,25 @@ print(catalog_item.get('Discount','Скидок нет!'))
 model in catalog_item
 model not in catalog_item
 del catalog_item['price']
+
+# Trying with logic
+if age < 18:
+	print('You cant drink')
+else:
+	print('You can drink')
+
+if not is_user_banned:
+	ban_user(user)
+
+if team == 'mystic':
+	print('hi blue team!')
+elif team == 'instinct':
+	print('hi yellow team!')
+elif team == 'valor':
+	print('hi red team!')
+
+if team == 'mystic':
+	if user_level >=5:
+		print('Welcome to the gym')
+	else:
+		print('Get more exp')
