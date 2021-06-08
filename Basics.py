@@ -123,9 +123,14 @@ print(cake)
 import datetime
 datetime.datetime.now()	#Module.function.function
 datetime.date.today()
+datetime.timedelta(days = 231, seconds=35475, microseconds=765859)
 
 date = datetime.datetime.now()
-date.strftime('%d.%m.%Y')
+date.strftime('%d.%m.%Y %H:%M')
+date.strftime('%A %d %B %m.%Y %H:%M') # For Mondays and Marchs
+
+date_str = '12/23/2010'
+date_s = datetime.strptime(date_str, '%m/%d/%Y')
 
 # Third party import
 pip3 list
