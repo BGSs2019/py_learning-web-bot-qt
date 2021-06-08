@@ -150,3 +150,23 @@ python -m venv env
 pip install flask
 import flask
 # e:\home\python\project\env\Scripts\deactivate.bat
+
+# Trying with files
+# Writing and rewriting
+with open('text.txt', 'w', encoding='utf-8') as myfile:
+	myfile.write("Hi!")
+
+# Reading
+with open('text.txt', 'r', encoding='utf-8') as myfile:
+	contex = myfile.read()
+	print(contex)
+# But better use this
+with open('text.txt', 'r', encoding='utf-8') as myfile:
+	for line in myfile:
+		line = line.uper()
+		line = replace('\n', '')
+		print(line)
+
+# Add in the end of file
+with open('text.txt', 'a', encoding='utf-8') as myfile:
+	myfile.write("I am Grut\n\t")
