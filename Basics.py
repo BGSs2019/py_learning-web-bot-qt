@@ -170,3 +170,18 @@ with open('text.txt', 'r', encoding='utf-8') as myfile:
 # Add in the end of file
 with open('text.txt', 'a', encoding='utf-8') as myfile:
 	myfile.write("I am Grut\n\t")
+
+#CSV Comma Separated Values
+import csv
+with open('data_usdrub.csv', 'r', encoding='utf-8') as f:
+	fields = ['number', 'time', 'course']
+	reader = csv.DictReader(f, fieldnames=fields, delimiter=';')
+	for row in reader:
+		print(row)
+
+with open('data_usdrub.csv', 'w', encoding='utf-8') as f:
+	fields = ['number', 'time', 'course']
+	writer = csv.DictWriter(f, fieldnames=fields, delimiter=';')
+	writer.writeheader()
+	for course in course_list:
+		writer.writerow(course)
