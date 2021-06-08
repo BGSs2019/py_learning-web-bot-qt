@@ -135,3 +135,13 @@ mars = ephem.Mars('2016/09/23')
 ephem.constellation(mars)
 
 from telegram import Updater
+
+# Trying with venv
+pip install venv
+# Should do in current location
+python -m venv env
+# e:\home\python\project\env\Scripts\activate.bat
+# Command line starts with (env)
+pip install flask
+import flask
+# e:\home\python\project\env\Scripts\deactivate.bat
