@@ -1,6 +1,6 @@
 from sqlalchemy import create_engine
-from sqlalchemy import Column, Integer, String
-from sqlalchemy.orm import scoped_session, sessionmaker
+from sqlalchemy import Column, Integer, String, Text, DateTime, ForeignKey
+from sqlalchemy.orm import scoped_session, sessionmaker, relationship
 from sqlalchemy.ext.declarative import declarative_base
 
 engine = create_engine('sqlite:///blog.sqlite')
@@ -16,6 +16,7 @@ class User(Base):
 	first_name = Column(String(50))
 	last_name = Column(String(50))
 	email = Column(String(120), unique=True)
+	post = relationship('Post', backref='author')
 
 	def __init__(self, first_name=None, last_name=None, email=None):
 		self.first_name = first_name
@@ -25,6 +26,22 @@ class User(Base):
 	def __repr__(self):
 		return '<User {} {} {}>'.format(self.first_name, self.last_name, self.email)
 
+class Post(Base):
+	__tablename__='posts'
+	id = Column(Integer, primary_key=True)
+	title = Column(String(150))
+	published = Column(DateTime)
+	content = Column(Text)
+	user_id = Column(Integer, ForeignKey('users.id'))
+
+	def __init__(self, title=None, published=None, content=None, user_id=None):
+		self.title = title
+		self.published = published
+		self.content = content
+		self.user_id = user_id
+
+	def __repr__(self):
+		return '<Post {} {} {}>'.format(self.title)
 
 if __name__ == '__main__':
 	Base.metadata.create_all(bind=engine)
